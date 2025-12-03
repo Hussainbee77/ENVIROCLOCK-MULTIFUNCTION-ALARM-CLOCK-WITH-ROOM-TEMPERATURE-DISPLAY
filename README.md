@@ -1,98 +1,53 @@
-#ENVIROCLOCK MULTIFUNCTION-ALARM-CLOCK-WITH-ROOM-TEMPERATURE-DISPLAY
+# EnviroClock – Multifunction Alarm Clock Using LPC2148
 
-🔹 Project Overview
-
-A real-time embedded system built using LPC2148 ARM7 microcontroller, featuring live clock display, temperature monitoring, user-configurable alarm, and easy interaction through a keypad and LCD interface.
-
-🚀 Key Features
-
-⌚ Accurate Real-Time Clock (RTC)
-
-Continuously displays current time, date, and weekday with precise timekeeping using the onboard RTC.
-
-🌡️ Live Temperature Monitoring
-
-Measures room temperature in real-time using LM35 sensor via ADC and updates the LCD instantly.
-
-🔔 Smart Alarm System
-
-1.User-configurable alarm using keypad input.
-
-2.Alarm triggers a buzzer when time matches.
-
-3.Auto-stop after 1 minute & manual stop supported.
+A multifunction digital alarm clock developed using the **LPC2148 ARM7 microcontroller**, featuring RTC-based timekeeping, LM35 temperature sensing via ADC, keypad input for configuration, external interrupt–driven menu navigation, and buzzer-based alarm notification.  
+This project is fully modular, hardware-tested, and implemented using **Keil uVision**.
 
 
-🔢 Easy Keypad Interface
+## 🚀 Features
 
-4×4 matrix keypad enables:
+- **Real-Time Clock (RTC)**
+  - Displays Hour:Minute:Second
+  - Supports editing of time & date via keypad
+  - Day of the week support
 
-1.RTC editing.
+- **Temperature Monitoring**
+  - LM35 sensor connected through ADC
+  - Displays real-time room temperature in °C
 
-2.Alarm setting.
+- **Alarm Functionality**
+  - Set alarm (HH:MM) using keypad
+  - Buzzer rings when time matches
+  - Stop alarm using physical button (P0.22)
+  - Bell symbol displayed only during ringing
 
-3.Menu navigation.
+- **User Input via Keypad**
+  - 4x4 matrix keypad
+  - Supports numeric input, delete (C), operators ignored
+  - Custom ReadNum function for validated input
 
-Input values are validated for accuracy.
+- **LCD Interface**
+  - 16x2 LCD in 8-bit mode
+  - Displays:
+    - Time + Day
+    - Date (DD/MM/YYYY)
+    - Temperature (T:X.X°C)
 
+- **External Interrupt Menu (EINT0)**
+  - Press button → Menu appears:
+      1. Edit RTC  
+      2. Set Alarm  
+      3. Exit
+         
 
-📟 User-Friendly LCD Display
+##  Hardware Requirements
 
-1.Character LCD provides clear display of Time, date, temperature.
-
-2.Menu options and user prompts.
-
-3.Error messages for invalid inputs.
-
-🚨 Interrupt-Driven Quick Access Menu
-
-- External interrupt triggers a direct jump to the configuration menu without interrupting system performance.
-
-✔️ RTC Editing with Input Validation
-
-Ensures valid ranges for time/date including leap year handling before updating RTC registers.
-
-🛠️Development Workflow
-
-Keil µVision4 IDE
-
-1.Full embedded C code development.
-
-2.Error detection, step-wise debugging, peripheral simulation.
-
-3.Generates HEX file for final flashing.
-
-4.Ensures reliable and accurate firmware behavior.
-
-Flash Magic for Programming.
-1.Loads HEX file into LPC2148 via ISP and UART0.
-
-2.Performs flash erase, write & verification.
-
-3.Runs the embedded application in real hardware.
-
-4.UART0 for Debugging.
-
-🔌 Power Supply Integration
-
-1.Provides regulated 3.3V and 5V DC.
-
-2.3.3V for LPC2148 core and peripherals.
-
-3.5V for LCD, keypad, LM35 & RTC modules.
-
-4.Common ground ensures noise-free stable operation.
-
-5.On-board regulator converts 5V → 3.3V for safe MCU usage.
-
-📍 Project Highlights
-
-✔ Real-time monitoring and standalone operation.
-
-✔ Interrupt-based fast configuration.
-
-✔ Fully validated user inputs for high accuracy.
-
-✔ Embedded debugging support for system testing.
-
-✔ Efficient communication using UART0.
+- **ARM LPC2148 Development Board**
+- **LM35 Temperature Sensor**
+- **16x2 Character LCD (HD44780 compatible)**
+- **4x4 Matrix Keypad**
+- **Buzzer (Active/Passive)**
+- **Push Button (for EINT0 menu)**
+- **Push Button for Alarm Stop (P0.2)**
+- **Connecting Wires / Breadboard**
+- **5V Power Supply**
