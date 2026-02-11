@@ -54,33 +54,7 @@ CmdLCD(GOTO_LINE2_POS0+12);
 U32LCD(temp);
 CharLCD(0XDF); /* Degree Symbol */
 CharLCD('C');
-check_alarm();
-/* Alaram check(when seconds == 0 to trigger once per mintute)*/
-/*if(HOUR==alaram_hour && MIN==alaram_min)
-		{
-			if(Alarm_Ring==0)
-			{  
-			 BuildCGRAM(bell,8);
-			 CmdLCD(GOTO_LINE1_POS0+15);
-		      CharLCD(0);
-			 IOSET0=1<<0;
-			if((IOPIN0>>22&1)==0)//switch for stop the alarm
-			{	
-		    	IOCLR0=1<<0;
-			   CmdLCD(GOTO_LINE1_POS0+15);
-			   CharLCD(' ');
-			   Alarm_Ring=1;
-			}
-
-			}											 
-			   //CharLCD(' ');
-	}
-		else
-	  	{	
-				CmdLCD(GOTO_LINE1_POS0+15);
-			   CharLCD(' ');
-				Alarm_Ring=0;
-		} */
+check_alarm();
     } 
     }
     }
